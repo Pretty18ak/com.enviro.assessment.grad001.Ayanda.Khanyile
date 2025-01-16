@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="header">
+    <h2>Waste Categories</h2>
+    <button class="add-button" (click)="onClickAdd()">Add</button>
+  </div>
+
+  <table class="categories-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let category of wasteCategories">
+        <td>{{ category.id }}</td>
+        <td>{{ category.name }}</td>
+        <td>{{ category.description }}</td>
+        <td>
+          <button
+            class="action-button"
+            (click)="onEdit(category.id)"
+            title="Edit"
+          >
+            <i class="fa fa-pencil"></i>
+          </button>
+          <button
+            class="action-button"
+            (click)="onDelete(category.id)"
+            title="Delete"
+          >
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>

@@ -1,0 +1,56 @@
+<div class="container">
+  <h2>Edit Waste Category</h2>
+
+  <form [formGroup]="editCategoryForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Category Name</label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        placeholder="Enter category name"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          editCategoryForm.get('name')?.invalid &&
+          editCategoryForm.get('name')?.touched
+        "
+        class="error"
+      >
+        Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Category Description</label>
+      <textarea
+        id="description"
+        rows="4"
+        formControlName="description"
+        placeholder="Enter category description"
+        class="form-control"
+      ></textarea>
+      <div
+        *ngIf="
+          editCategoryForm.get('description')?.invalid &&
+          editCategoryForm.get('description')?.touched
+        "
+        class="error"
+      >
+        Description is required.
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="editCategoryForm.invalid"
+      class="submit-button"
+    >
+      Update Category
+    </button>
+
+    <div class="spacer"></div>
+    <button class="back" (click)="onBack()">Back</button>
+  </form>
+</div>
